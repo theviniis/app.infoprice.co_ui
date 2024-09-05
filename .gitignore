@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 # jest
-.jest/coverage
+.jest/coverage/*

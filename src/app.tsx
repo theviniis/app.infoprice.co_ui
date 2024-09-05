@@ -1,7 +1,7 @@
-import { Button } from "@/components";
+import { ButtonPrimary } from "@/components";
 
 function App() {
-	return <Button>Hello world</Button>;
+	return <ButtonPrimary>Hello world</ButtonPrimary>;
 }
 
 export default App;
