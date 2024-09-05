@@ -12,7 +12,7 @@ export default {
 	},
 	testPathIgnorePatterns: ["/node_modules/", "/dist/"],
 	collectCoverage: true,
-	collectCoverageFrom: ["src/**/*.{ts,tsx}", "!src/**/*.d.ts"],
+	collectCoverageFrom: ["src/**/*.{ts,tsx}", "!src/**/*.d.ts", "!src/**/*stories.{ts,tsx}", "!src/**/main.tsx"],
 	coverageDirectory: "<rootDir>/.jest/coverage",
 	snapshotResolver: "<rootDir>/.jest/snapshotResolver.cjs",
 	setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
