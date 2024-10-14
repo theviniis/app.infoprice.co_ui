@@ -22,3 +22,11 @@
 :where(button, input, select, textarea) {
 	font: inherit;
 }
+
+:where(ul, ol) {
+	list-style: none;
+}
+
+:where(html, body, main) {
+	height: 100dvh;
+}
