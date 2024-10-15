@@ -1,12 +1,12 @@
 import { expect } from "@storybook/test";
 import { fireEvent, render } from "@testing-library/react";
-import { InputCurrency, InputCurrencyProps } from "./input-currency";
+import { InfoCurrencyInputProps, InputCurrency } from "./InfoCurrencyInput";
 
 const handleChange = jest.fn();
 
 const handleChangeValue = jest.fn();
 
-const props: InputCurrencyProps = {
+const props: InfoCurrencyInputProps = {
 	value: 1,
 	onChange: (event) => handleChange(event.target.value),
 	currency: { precision: 2 },

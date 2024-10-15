@@ -1,4 +1,4 @@
 export * from "./button-primary";
-export * from "./input-currency";
+export * from "./currenc-inputs-demo";
 export * from "./input-text";
 export * from "./label";

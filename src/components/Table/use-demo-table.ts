@@ -1,4 +1,3 @@
-import { calcHandlers } from "@/lib";
 import { useCallback, useEffect } from "react";
 import { InputFields, RowData } from "./types";
 import { useDatapoints } from "./use-datapoints";
@@ -10,17 +9,8 @@ export const useDemoTable = () => {
 	const handlePriceChange = useCallback(
 		(value: number) => {
 			return (dataKey: InputFields, rowData: RowData) => {
-				const { id, competitorsPrice, cost, salesTaxPercentage, expansesPercentage } = rowData;
-				switch (dataKey) {
-					case "price":
-						rowData.price = value;
-						rowData.cpi = calcHandlers.cpiUsingPrice({ price: value, competitorsPrice });
-						rowData.margin = calcHandlers.marginUsingPrice({ price: value, cost, salesTaxPercentage, expansesPercentage });
-						break;
-					default:
-						rowData[dataKey] = value;
-						break;
-				}
+				const { id } = rowData;
+				rowData[dataKey] = value;
 				updateById(id, rowData);
 			};
 		},
@@ -42,7 +32,7 @@ export const useDemoTable = () => {
 	useEffect(() => {
 		const handleFocusNextColumnInput = ({ key, target }: KeyboardEvent) => {
 			if (key !== "Enter") return;
-			const classes = ["price", "cpi", "margin"] as const;
+			const classes = ["info-input-currency", "react-number-format", "react-currency-input-field", "imask-currency-input"] as const;
 			const currentColumn = (target as HTMLElement).getAttribute("data-column-type") as (typeof classes)[number];
 			if (!classes.includes(currentColumn)) return;
 			const nodeInputList = document.querySelectorAll(`[data-column-type="${currentColumn}"]`); // as NodeListOf<HTMLInputElement>;

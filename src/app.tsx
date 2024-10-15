@@ -1,7 +1,11 @@
-import { ButtonPrimary } from "@/components";
+import { DemoTable } from "./components/Table/demo-table";
 
 function App() {
-	return <ButtonPrimary>Hello world</ButtonPrimary>;
+	return (
+		<main>
+			<DemoTable />
+		</main>
+	);
 }
 
 export default App;

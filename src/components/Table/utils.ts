@@ -21,6 +21,10 @@ export const makeDatapoint = ({
 		cost,
 		expansesPercentage,
 		salesTaxPercentage,
+		"imask-currency-input": 0,
+		"info-input-currency": 0,
+		"react-currency-input-field": 0,
+		"react-number-format": 0,
 	};
 };
 
@@ -37,7 +41,15 @@ export const saveOnBlur = async (value: number): Promise<RowData[]> => {
 			resolve(
 				Array.from({ length: LENGTH }, (_, i) => {
 					const id = i.toString();
-					return makeDatapoint({ id, cpi: value * i, margin: value * i });
+					return makeDatapoint({
+						id,
+						cpi: value * i,
+						margin: value * i,
+						"imask-currency-input": value * i,
+						"info-input-currency": value * i,
+						"react-currency-input-field": value * i,
+						"react-number-format": value * i,
+					});
 				}),
 			);
 		}, 1000);

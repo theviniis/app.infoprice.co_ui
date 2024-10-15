@@ -1,16 +1,25 @@
-import { InputCurrency } from "../form";
+import { IMaskCurrencyInput, InputCurrency, ReactCurrencyInputField, ReactNumberFormat } from "../form";
 import { useDemoTable } from "./use-demo-table";
 
+const props = {
+	selectOnFocus: true,
+	precision: 2,
+	thousandSeparator: ".",
+	decimalSeparator: ",",
+	allowEmpty: false,
+};
+
 export const DemoTable = () => {
-	const { data, handlePriceChange, handleSaveChangesOnBlur } = useDemoTable();
+	const { data, handlePriceChange } = useDemoTable();
 	return (
 		<div>
 			<table>
 				<thead>
 					<tr>
-						<th>Price</th>
-						<th>CPI</th>
-						<th>Margin</th>
+						<th>InfoInput</th>
+						<th>ReactNumberFormat</th>
+						<th>ReactCurrencyInputField</th>
+						<th>IMaskCurrencyInput</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -18,32 +27,34 @@ export const DemoTable = () => {
 						<tr key={row.id}>
 							<td>
 								<InputCurrency
-									data-column-type="price"
-									value={row.price}
-									onChangeValue={({ float }) => handlePriceChange(float)("price", row)}
-									currency={{ precision: 2, decimalSeparator: ",", thousandSeparator: ".", allowEmpty: true }}
-									selectOnFocus
-									onBlur={() => handleSaveChangesOnBlur(row)}
+									data-column-type="info-input-currency"
+									value={row["info-input-currency"]}
+									onChangeValue={(float) => handlePriceChange(float)("info-input-currency", row)}
+									{...props}
 								/>
 							</td>
 							<td>
-								<InputCurrency
-									data-column-type="cpi"
-									value={row.cpi}
-									onChangeValue={({ float }) => handlePriceChange(float)("cpi", row)}
-									currency={{ precision: 1, decimalSeparator: ",", thousandSeparator: ".", allowEmpty: true }}
-									selectOnFocus
-									onBlur={() => handleSaveChangesOnBlur(row)}
+								<ReactNumberFormat
+									data-column-type="react-number-format"
+									value={row["react-number-format"]}
+									onChangeValue={(float) => handlePriceChange(float)("react-number-format", row)}
+									{...props}
 								/>
 							</td>
 							<td>
-								<InputCurrency
-									data-column-type="margin"
-									value={row.margin}
-									onChangeValue={({ float }) => handlePriceChange(float)("margin", row)}
-									currency={{ precision: 1, decimalSeparator: ",", thousandSeparator: ".", allowEmpty: true }}
-									selectOnFocus
-									onBlur={() => handleSaveChangesOnBlur(row)}
+								<ReactCurrencyInputField
+									data-column-type="react-currency-input-field"
+									value={row["react-currency-input-field"]}
+									onChangeValue={(float) => handlePriceChange(float)("react-currency-input-field", row)}
+									{...props}
+								/>
+							</td>
+							<td>
+								<IMaskCurrencyInput
+									data-column-type="imask-currency-input"
+									value={row["imask-currency-input"]}
+									onChangeValue={(float) => handlePriceChange(float)("imask-currency-input", row)}
+									{...props}
 								/>
 							</td>
 						</tr>
