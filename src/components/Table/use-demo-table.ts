@@ -1,10 +1,9 @@
 import { useCallback, useEffect } from "react";
 import { InputFields, RowData } from "./types";
 import { useDatapoints } from "./use-datapoints";
-// import { saveOnBlur } from "./utils";
 
 export const useDemoTable = () => {
-	const [data, { updateById, findById }] = useDatapoints();
+	const [data, { updateById }] = useDatapoints();
 
 	const handlePriceChange = useCallback(
 		(value: number) => {
@@ -16,18 +15,6 @@ export const useDemoTable = () => {
 		},
 		[updateById],
 	);
-
-	// const handleSaveChangesOnBlur = useCallback(
-	// 	async (rowData: RowData) => {
-	// 		const response = await saveOnBlur(rowData.price);
-	// 		response.forEach((row) => {
-	// 			const item = findById(row.id);
-	// 			if (!item) return;
-	// 			updateById(item.id, row);
-	// 		});
-	// 	},
-	// 	[updateById, findById],
-	// );
 
 	useEffect(() => {
 		const handleFocusNextColumnInput = ({ key, target }: KeyboardEvent) => {

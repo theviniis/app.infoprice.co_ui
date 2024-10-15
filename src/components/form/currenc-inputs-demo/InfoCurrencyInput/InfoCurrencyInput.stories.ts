@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { fn } from "@storybook/test";
-import { InfoCurrencyInputProps, InputCurrency } from "./InfoCurrencyInput";
+import { CurrencyInputProps } from "../CurrencyInput.types";
+import { InputCurrency } from "./InfoCurrencyInput";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -17,8 +17,8 @@ const meta = {
 		// backgroundColor: { control: "color" },
 	},
 	// Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
-	args: { onClick: fn() },
-} satisfies Meta<InfoCurrencyInputProps>;
+	args: {},
+} satisfies Meta<CurrencyInputProps>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -27,8 +27,5 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
 	args: {
 		value: 0,
-		config: {
-			precision: 0,
-		},
 	},
 };

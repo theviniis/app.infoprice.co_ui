@@ -14,7 +14,7 @@ export const ReactNumberFormat = ({
 	return (
 		<NumericFormat
 			value={value}
-			onValueChange={({ floatValue }) => onChangeValue(floatValue || 0)}
+			onValueChange={({ floatValue }) => onChangeValue?.(floatValue || 0)}
 			decimalScale={precision}
 			decimalSeparator={decimalSeparator}
 			thousandSeparator={thousandSeparator}

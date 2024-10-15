@@ -15,7 +15,7 @@ export const ReactCurrencyInputField = ({
 		<CurrencyInput
 			value={value}
 			onValueChange={(_v, _n, values) => {
-				onChangeValue(values?.float || 0);
+				onChangeValue?.(values?.float || 0);
 			}}
 			decimalScale={precision}
 			decimalSeparator={decimalSeparator}

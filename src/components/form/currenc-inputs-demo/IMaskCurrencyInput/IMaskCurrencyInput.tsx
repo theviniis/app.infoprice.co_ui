@@ -22,7 +22,7 @@ export const IMaskCurrencyInput = ({
 			thousandsSeparator={thousandSeparator}
 			mapToRadix={[thousandSeparator, decimalSeparator]}
 			radix={decimalSeparator}
-			onAccept={(value) => onChangeValue(value as never)}
+			onAccept={(value) => onChangeValue?.(value as never)}
 			onFocus={(e) => {
 				if (selectOnFocus) e.target.select();
 				onFocus?.(e);
