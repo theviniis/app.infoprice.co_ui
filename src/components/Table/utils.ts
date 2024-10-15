@@ -21,10 +21,10 @@ export const makeDatapoint = ({
 		cost,
 		expansesPercentage,
 		salesTaxPercentage,
-		"imask-currency-input": 0,
-		"info-input-currency": 0,
-		"react-currency-input-field": 0,
-		"react-number-format": 0,
+		"imask-currency-input": 9999.99,
+		"info-input-currency": 9999.99,
+		"react-currency-input-field": 9999.99,
+		"react-number-format": 9999.99,
 	};
 };
 
@@ -32,26 +32,5 @@ export const getData = async () => {
 	const data = Array.from({ length: LENGTH }, (_, i) => makeDatapoint({ id: i.toString() }));
 	return new Promise<RowData[]>((resolve) => {
 		resolve(data);
-	});
-};
-
-export const saveOnBlur = async (value: number): Promise<RowData[]> => {
-	return new Promise<RowData[]>((resolve) => {
-		setTimeout(() => {
-			resolve(
-				Array.from({ length: LENGTH }, (_, i) => {
-					const id = i.toString();
-					return makeDatapoint({
-						id,
-						cpi: value * i,
-						margin: value * i,
-						"imask-currency-input": value * i,
-						"info-input-currency": value * i,
-						"react-currency-input-field": value * i,
-						"react-number-format": value * i,
-					});
-				}),
-			);
-		}, 1000);
 	});
 };

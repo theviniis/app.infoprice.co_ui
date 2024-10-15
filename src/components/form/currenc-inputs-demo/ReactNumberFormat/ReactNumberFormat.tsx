@@ -9,10 +9,11 @@ export const ReactNumberFormat = ({
 	selectOnFocus,
 	onChangeValue,
 	onFocus,
+	...props
 }: T.CurrencyInputProps) => {
 	return (
 		<NumericFormat
-			defaultValue={value}
+			value={value}
 			onValueChange={({ floatValue }) => onChangeValue(floatValue || 0)}
 			decimalScale={precision}
 			decimalSeparator={decimalSeparator}
@@ -23,6 +24,7 @@ export const ReactNumberFormat = ({
 				if (selectOnFocus) e.target.select();
 				onFocus?.(e);
 			}}
+			{...props}
 		/>
 	);
 };

@@ -11,6 +11,7 @@ const props = {
 
 export const DemoTable = () => {
 	const { data, handlePriceChange } = useDemoTable();
+
 	return (
 		<div>
 			<table>
