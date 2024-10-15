@@ -25,3 +25,6 @@ dist-ssr
 
 # jest
 .jest/coverage/*
+
+# Local Netlify folder
+.netlify
